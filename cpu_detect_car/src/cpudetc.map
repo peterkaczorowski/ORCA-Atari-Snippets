@@ -1,0 +1,19 @@
+; CPUDETC.MAP -- the makecart recipe for the cpu_detect cartridge.
+;
+; A plain 8 KB cartridge is geometry and content, and nothing else:
+;
+;   CARTRIDGE   TYPE=1 is "standard 8 KB"; image size = BANKS * BANKSIZE.
+;   IHEX        the Intel HEX from `orcalink --rom-config'.  Record
+;               addresses are image offsets, not Atari addresses.  Every
+;               byte no record covers is filled with $FF.
+;
+; No BANKVECTOR: the six bytes at $BFFA are the hardware's cartridge header,
+; placed by the Intel HEX like every other byte.  No CARFS and no ADD, so no
+; directory is built -- this cartridge holds no files.  No BANK/BANKORDER:
+; one bank, no free area.
+;
+; Output: CPUDETC.MAP -> CPUDETC.CAR, next to the input (`makecart -o' overrides).
+
+[MAP]
+CARTRIDGE TYPE=1 BANKSIZE=8K BANKS=1
+IHEX CPUDETC.HEX

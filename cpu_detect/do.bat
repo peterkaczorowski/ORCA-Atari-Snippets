@@ -1,0 +1,2 @@
+orcam CPUDET.ASM keep=CPUDET
+orcal CPUDET format=ATARIDOS keep=CPUDET.COM
