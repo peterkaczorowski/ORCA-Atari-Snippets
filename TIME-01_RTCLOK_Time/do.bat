@@ -1,0 +1,2 @@
+orcam TIME01.ASM keep=TIME01
+orcal TIME01 keep=TIME01.COM

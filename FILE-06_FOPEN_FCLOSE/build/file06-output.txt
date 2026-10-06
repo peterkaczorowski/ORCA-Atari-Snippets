@@ -1,0 +1,2 @@
+OPEN/CLOSE OK: T06.TMP
+

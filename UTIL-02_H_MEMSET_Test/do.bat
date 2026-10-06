@@ -1,0 +1,2 @@
+orcam UTIL02.ASM keep=UTIL02
+orcal UTIL02 mtype=HIGHSEG:3 keep=UTIL02.COM

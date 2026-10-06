@@ -1,0 +1,2 @@
+orcam PATH01.ASM keep=PATH01
+orcal PATH01 keep=PATH01.COM

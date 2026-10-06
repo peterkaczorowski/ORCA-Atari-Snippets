@@ -1,0 +1,23 @@
+Min OK
+Init OK
+Alloc A
+Alloc B
+Size OK
+Free A
+Alloc C
+Free C
+Free B
+Destr OK
+Init2 OK
+A2 OK
+B2 OK
+C2 OK
+Shrink OK
+FrB OK
+Grow OK
+Move OK
+Rnull OK
+Rzero OK
+Stats OK
+Done
+

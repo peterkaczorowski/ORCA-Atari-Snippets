@@ -1,0 +1,5 @@
+A alloc1 ok
+A free ok
+A alloc2 ok
+A OK
+

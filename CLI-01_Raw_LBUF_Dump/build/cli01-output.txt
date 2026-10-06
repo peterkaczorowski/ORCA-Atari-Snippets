@@ -1,0 +1,2 @@
+LBUF: cli01.com test.asm +L keep=out
+

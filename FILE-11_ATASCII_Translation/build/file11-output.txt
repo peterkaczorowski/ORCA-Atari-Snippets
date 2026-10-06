@@ -1,0 +1,3 @@
+XLAT:$00000C OK
+
+Content verified: every $9B -> $0D

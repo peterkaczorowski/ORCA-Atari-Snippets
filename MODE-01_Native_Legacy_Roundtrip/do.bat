@@ -1,0 +1,2 @@
+orcam MODE01.ASM keep=MODE01
+orcal MODE01 mtype=HIGHSEG:3 keep=MODE01.COM

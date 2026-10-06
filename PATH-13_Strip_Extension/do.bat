@@ -1,0 +1,2 @@
+orcam PATH13.ASM keep=PATH13
+orcal PATH13 mtype=HIGHSEG:3 keep=PATH13.COM

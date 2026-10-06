@@ -1,0 +1,2 @@
+orcam FILE07.ASM keep=FILE07
+orcal FILE07 mtype=HIGHSEG:3 keep=FILE07.COM

@@ -1,0 +1,8 @@
+--- CPU-02 BankCross 16-bit reads ---
+R1 [dp],y=$003412
+R2 [dp]  =$003412
+R3 al    =$003412
+R4 al,x  =$003412
+R5 abs   =$003412
+R6 (dp),y=$003412
+--- done ---

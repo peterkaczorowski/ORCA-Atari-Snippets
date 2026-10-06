@@ -1,1 +1,23 @@
+# The host-side driver script.  Each project is also buildable from macOS, but
+# do.bat is the build this repository publishes, so build.sh stays out -- at any
+# depth, deliberately without a leading slash.
 build.sh
+
+# macOS directory metadata.
+.DS_Store
+
+# Measurement and maintenance scaffolding for the corpus as a whole.  These
+# drive the snippets, compare host builds against native ones and record the
+# results; they are not snippets, and they reach outside this repository for the
+# toolchain, so they would not run from a clean checkout anyway.
+/harness/
+/snippet-env.sh
+/verify-dobat.sh
+/gen-dobat.py
+__pycache__/
+
+# A 92176-byte ATR disk image sitting in PATH-12's build/ directory.  No recipe
+# in this repository writes it and none reads it, so it cannot be reproduced
+# from what is published here.  Excluded rather than shipped as an artifact that
+# only looks built.  (harness/exceptions.txt records the same finding.)
+/PATH-12_Default_Extension/build/path12.atr

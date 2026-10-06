@@ -1,0 +1,2 @@
+orcam FILE02.ASM keep=FILE02
+orcal FILE02 keep=FILE02.COM

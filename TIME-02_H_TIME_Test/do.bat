@@ -1,0 +1,2 @@
+orcam TIME02.ASM keep=TIME02
+orcal TIME02 mtype=HIGHSEG:3 keep=TIME02.COM

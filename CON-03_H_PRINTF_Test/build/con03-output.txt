@@ -1,0 +1,7 @@
+--- CON-03 H_PRINTF Test ---
+Test 1: simple string ........ PASS
+Test 2: hex value = $00cafe
+Test 3: 8bit decimal = 42
+Test 4: 16bit decimal = 12345
+--- All H_PRINTF tests done ---
+
