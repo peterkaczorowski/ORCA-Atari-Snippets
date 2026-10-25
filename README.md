@@ -15,10 +15,11 @@ Every directory holds the same four things:
 - `src/` — the ORCA/M source, with a header block that states what the snippet
   does, which method it uses, which SDX symbols it touches, and what output to
   expect
-- `do.bat` — the two-line SDX build, `orcam` then `orcal`, exactly as typed on
-  the machine
+- `do.bat` — the SDX build exactly as typed on the machine: two lines, `orcam`
+  then `orcal`, for a program; three for a cartridge, where `makecart` turns the
+  linker's Intel HEX into the image
 - `build/` — the linker inputs (`.ROOT`, and `.A` when the program has a second
-  segment) and the runnable `.COM`
+  segment) and the runnable `.COM`, or the `.CAR` for a cartridge
 - `build/*-output.txt` — the program's captured output, where the program has
   output that can be captured
 
@@ -36,8 +37,12 @@ Two naming conventions are worth knowing before reading the table:
   linked with `--memtype HighSeg=3`. That is why only some projects carry a `.A`
   file. The split is exact: of the 55 numbered snippets, the 30 that call
   native `H_*` entry points all have one, and the 25 emulation-mode ones have
-  none. `cpu_detect` and `cpu_detect_car` also have a `.A`, but for an unrelated
-  reason — a separate `RunVec` segment, not a native-mode body.
+  none. The three projects outside that count also have a `.A`, each for its own
+  unrelated reason: `cpu_detect` and `cpu_detect_car` have a separate `RunVec`
+  segment, and `antonia2_test_car` a separate `CarHdr` segment for the six bytes
+  at `$BFFA` — none of them a native-mode body. **So a `.A` file does not mean
+  native mode**; the correlation holds across the 55 numbered snippets and
+  nowhere else.
 
 ## The projects
 
@@ -47,6 +52,12 @@ Two naming conventions are worth knowing before reading the table:
 |---|---|---|
 | [`cpu_detect`](cpu_detect/) | identifies the CPU family and writes the answer into the top-left screen cell | `CPUDET.COM`, 184 bytes |
 | [`cpu_detect_car`](cpu_detect_car/) | the same probe packaged as a plain 8 KB cartridge at `$A000` | `CPUDETC.CAR`, 8208 bytes |
+
+### Antonia 2 hardware arithmetic
+
+| project | what it is | artifact |
+|---|---|---|
+| [`antonia2_test_car`](antonia2_test_car/) | an 8 KB cartridge that puts the **Antonia 2 hardware multiply/divide block** through eight cases — four 32-bit products up to `65535 × 65535`, four quotient-and-remainder divides including divide-by-zero — reading every printed number back from MMIO at `$FF:F008..$FF:F00F` and checking it against a constant. Needs a 65C816 and the block, and detects both rather than assuming them | `ANT2TEST.CAR`, 8208 bytes |
 
 ### CPU bank-boundary behaviour
 
@@ -147,10 +158,11 @@ the fix cannot be over-generalized.
 
 - **`build.sh` is not checked in.** Each project also has a host-side script
   that drives the same assembler and linker from macOS, but `do.bat` is the
-  build this repository is about, so `.gitignore` excludes `build.sh` outright.
-  Where the two differ in naming, `do.bat` names its outputs in upper case —
-  `keep=CLI01.COM` — while the host build writes the lower-case names you see
-  under `build/`. The bytes are the same program either way.
+  build this repository is about, so `.gitignore` excludes `build.sh` outright —
+  and `build.py`, which is the same thing in another language, on the same
+  grounds. Where the two differ in naming, `do.bat` names its outputs in upper
+  case — `keep=CLI01.COM` — while the host build writes the lower-case names you
+  see under `build/`. The bytes are the same program either way.
 - **No captured output for `CON-04` and `IRQ-01`.** Both wait for a key — one
   for any key, one for BREAK — so there is nothing a non-interactive run can
   capture. Their `do.bat` builds; the output is yours to watch.
@@ -158,6 +170,12 @@ the fix cannot be over-generalized.
   `FILE-03_hal_file_release` exists in the working tree but is empty — no
   source, no recipe, nothing built. There is nothing to publish, so the number
   simply does not appear above.
+- **`antonia2_test_car`'s cartridge was first built in a different working
+  tree**, and its `do.bat` and host script were written here afterwards. Run in
+  this tree they reproduce all five artifacts byte-identically, the `.car`
+  included, so the two chains agree — but what the screenshot in that project's
+  `build/` accepts is a single manual run on an emulator, not an automatic one.
+  Its own README says which gaps that leaves.
 - **`PATH-12` has a 92 KB `.atr` disk image that is not checked in.** Nothing
   builds it and nothing reads it — not `do.bat`, not the host script — so it is
   a hand-made fixture that happens to sit in a `build/` directory. Publishing an

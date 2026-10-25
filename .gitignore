@@ -1,7 +1,9 @@
 # The host-side driver script.  Each project is also buildable from macOS, but
 # do.bat is the build this repository publishes, so build.sh stays out -- at any
-# depth, deliberately without a leading slash.
+# depth, deliberately without a leading slash.  build.py is the same thing in
+# another language, so it is excluded on the same grounds.
 build.sh
+build.py
 
 # macOS directory metadata.
 .DS_Store

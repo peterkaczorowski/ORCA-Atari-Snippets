@@ -1,0 +1,3 @@
+orcam ANT2TEST.ASM keep=ANT2TEST
+orcal ANT2TEST rc=ANT2.CFG keep=ANT2.HEX
+makecart -m ANT2TEST.MAP

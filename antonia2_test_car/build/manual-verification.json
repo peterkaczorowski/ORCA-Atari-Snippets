@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "verification": "User manual run in AltirraSDL; screenshot supplied in conversation",
+  "date": "2026-10-25",
+  "cpu": "65C816",
+  "antonia2_block": "READY",
+  "graphics": "GR.0",
+  "checks_passed": 8,
+  "checks_total": 8,
+  "source_sha256": "9dee6dd6c8118cfa1404e488c8214242dfcf6d7413a1c23708fd4642d2f80356",
+  "car_sha256": "100c13ef2b825fcb8ec1396c9b5daccf41855705e0a5bac6aed680dd4753143c",
+  "automated_bridge_run": false,
+  "negative_configuration_paths_tested": false,
+  "repeat_key_tested": false,
+  "cases": [
+    {
+      "operation": "multiply",
+      "a": 12,
+      "b": 34,
+      "product": 408
+    },
+    {
+      "operation": "multiply",
+      "a": 1234,
+      "b": 5678,
+      "product": 7006652
+    },
+    {
+      "operation": "multiply",
+      "a": 65535,
+      "b": 65535,
+      "product": 4294836225
+    },
+    {
+      "operation": "multiply",
+      "a": 32768,
+      "b": 2,
+      "product": 65536
+    },
+    {
+      "operation": "divide",
+      "n": 1000,
+      "d": 30,
+      "quotient": 33,
+      "remainder": 10
+    },
+    {
+      "operation": "divide",
+      "n": 65535,
+      "d": 256,
+      "quotient": 255,
+      "remainder": 255
+    },
+    {
+      "operation": "divide",
+      "n": 12345,
+      "d": 10,
+      "quotient": 1234,
+      "remainder": 5
+    },
+    {
+      "operation": "divide",
+      "n": 4660,
+      "d": 0,
+      "quotient": 65535,
+      "remainder": 4660
+    }
+  ]
+}
