@@ -176,13 +176,18 @@ On 2026-10-25 the cartridge was run in AltirraSDL and the screen showed
 **CPU: 65C816, BLOCK: READY, CHECKS: 8/8 PASS**, with every printed operation
 also checked arithmetically.
 
-Screenshot: [manual-screen.png](build/manual-screen.png). Report and artifact
-identification: [manual-verification.json](build/manual-verification.json).
+![GRAPHICS 0 screen: CPU 65C816, BLOCK READY, the MMIO addresses $FFF008 DIV and $FFF00C MUL, four multiplications and four divisions each ending OK, CHECKS 8/8 PASS, and the ANY KEY REPEAT / RESET RESTART prompt](build/manual-screen.png)
+
+That is the screen the paragraph above describes, so it can be read rather than
+taken on trust — the header line names the two MMIO addresses the results were
+read back from. Report and artifact identification:
+[manual-verification.json](build/manual-verification.json).
 
 That is a **manual** acceptance, and the gaps are part of the record: the
 cartridge has not been driven automatically through a bridge, nor accepted on
-FPGA, and the screenshot says nothing about the two mis-configuration paths or
-about the repeat-on-keypress loop.
+FPGA, and the screenshot says nothing about the two mis-configuration paths. Nor
+about the repeat-on-keypress loop — the bottom line is the *prompt* for it, and
+a still frame cannot show that a key actually repeats the run.
 
 ## Where the artifacts came from
 
